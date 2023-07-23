@@ -1,0 +1,57 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link type="text/css" href="{% static 'quiz/css/styles.css' %}" rel="stylesheet" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+<div class="wrapper">
+<header>
+    <nav>
+        <div class="topnav">
+            <a class="active" href="{% url 'home' %}">Главная</a>
+            <a href="{% url 'about' %}">О сайте</a>
+        </div>
+    </nav>
+</header>
+
+
+<main>
+{% block content %}
+
+{% endblock %}
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+</main>
+
+<footer class="footer">
+    <p>Все права защищены... Кем-то...</p>
+</footer>
+<script>
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          document.getElementById("myBtn").style.display = "block";
+      } else {
+          document.getElementById("myBtn").style.display = "none";
+      }
+  }
+
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+  }
+</script>
+</div>
+</body>
+
+</html>

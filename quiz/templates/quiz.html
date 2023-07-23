@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        <form method="post">
+        {% csrf_token %}
+        {% for i, j, t in q_and_a %}
+            <div class="center">
+                <div class="box">
+                <ul>
+                <h3 class="box-title">{{ i.question }}</h3>
+                <hr>
+            {% for k in j %}
+                <li>
+                {% if k == t %}
+                 <input name="{{ i.question }}" value="{{ k.answer }}" checked type="radio">
+                    <label>{{ k.answer }}</label>
+                    {% else %}
+                    <input name="{{ i.question }}" value="{{ k.answer }}" type="radio">
+                    <label>{{ k.answer }}</label>
+                    {% endif %}
+                <div class="bullet">
+                    <div class="line zero"></div>
+                    <div class="line one"></div>
+                    <div class="line two"></div>
+                    <div class="line three"></div>
+                    <div class="line four"></div>
+                    <div class="line five"></div>
+                    <div class="line six"></div>
+                    <div class="line seven"></div>
+                </div>
+                </li>
+            {% endfor %}
+                </ul>
+                </div>
+            </div>
+
+        {% endfor %}
+    <p class="center"><button type="submit" class="submit-margin">Завершить</button></p>
+        </form>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="content">
+        {% for q in quiz %}
+            <div class="center">
+		<div class="post">
+
+      <div class="post-img">
+          <img src="{{q.photo.url}}" width="200" height="230" class="img-round">
+      </div>
+
+      <div class="post-desc">
+        <p class="post-title">{{q.name}}</p>
+
+        <a href="{{ q.get_absolute_url }}" class="submit-margin">Пройти тест</a>
+      </div>
+    </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

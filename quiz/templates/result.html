@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="center">
+        <img src="{% static 'quiz/images/giphy.gif' %}">
+    </div>
+    <p class="result"><b>Твой результат - {{ result }} из {{ quiz_length }}</b></p>
+{% endblock %}
