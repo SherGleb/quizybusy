@@ -1,3 +1,4 @@
+from django.http import HttpResponseNotFound
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, FormView
@@ -48,6 +49,10 @@ def show_quiz(request, test_slug):
 
 def about(request):
     return render(request, 'about.html')
+
+
+def pageNotFound(request, exception):
+    return HttpResponseNotFound('<h1>Страница не найдена</h1>')
 
 
 
